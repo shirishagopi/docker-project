@@ -1,0 +1,24 @@
+---
+version: "3"
+services:
+  movie:
+    image: shirishagopi/phnpaymovies:v1
+    ports:
+      - "8007:80"
+    deploy:
+      replicas: 3
+
+  train:
+    image: shirishagopi/phnpaytrains:v1
+    ports:
+      - "8008:80"
+    deploy:
+      replicas: 3
+
+  recharge:
+    image: shirishagopi/phnpayrecharges:v1
+
+    ports:
+      - "8009:80"
+    deploy:
+      replicas: 3
