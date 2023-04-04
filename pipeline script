@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/shirishagopi/docker-project.git'
+            }
+        }
+        stage('stack') {
+            steps {
+                sh 'docker stack deploy --compose-file docker-compose.yml phonepay'
+            }
+        }
+    }
+}
